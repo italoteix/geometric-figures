@@ -3,6 +3,7 @@ from pygame.locals import *
 import OpenGL
 from OpenGL.GL import *
 from OpenGL.GLU import *
+
 from shape2d import *
 from shape3d import *
 
@@ -21,7 +22,8 @@ if __name__ == "__main__":
 
     cube = Cube(1, 1, 1, 1)
     parallelepiped = Parallelepiped(1, 1, 1, 1, 1, 2)
-    piramid = Piramid(0, 1, 0, 1, 1)
+    piramid = Piramid(0, 1, 0, 1, 1, 1.5)
+    line3d = Line3d([0, 1, 1], [2, 2, 2])
 
     while True:
         for event in pygame.event.get():
@@ -39,7 +41,8 @@ if __name__ == "__main__":
 
         # cube.draw()
         # parallelepiped.draw()
-        piramid.draw()
+        # piramid.draw()
+        line3d.draw()
 
         pygame.display.flip()
         pygame.time.wait(10)

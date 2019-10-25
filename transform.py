@@ -1,7 +1,7 @@
 from matrix import Matrix
 
 
-class Transf:
+class Transform:
     def reflex2D(self):
         for i in range(0, self.points.lenght):
             dom = Matrix(2, 1, [self.points[i][0], self.points[i][1]])

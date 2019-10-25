@@ -150,26 +150,28 @@ class Parallelepiped:
 class Piramid:
     # Params:
         # x, y, z: Front-upper-left vertex coordinate
-        # width height, length: Parallelepiped dimensions
-    def __init__(self, x, y, z, height, width):
+        # height: Distance to top vertex to base
+        # width, length: Base's dimensions
+    def __init__(self, x, y, z, height, width, length):
         self.x = x
         self.y = y
         self.z = z
         self.height = height
         self.width = width
+        self.length = length
         self.points = self._create_points()
 
     def _create_points(self):
         points_list = []
         points_list.append([self.x, self.y, self.z])
         points_list.append(
-            [self.x - self.width / 2, self.y - self.height, self.z + self.width / 2])
+            [self.x - self.length / 2, self.y - self.height, self.z + self.width / 2])
         points_list.append(
-            [self.x - self.width / 2, self.y - self.height, self.z - self.width / 2])
+            [self.x - self.length / 2, self.y - self.height, self.z - self.width / 2])
         points_list.append(
-            [self.x + self.width / 2, self.y - self.height, self.z + self.width / 2])
+            [self.x + self.length / 2, self.y - self.height, self.z + self.width / 2])
         points_list.append(
-            [self.x + self.width / 2, self.y - self.height, self.z - self.width / 2])
+            [self.x + self.length / 2, self.y - self.height, self.z - self.width / 2])
         return points_list
 
     def draw(self):
@@ -203,6 +205,27 @@ class Piramid:
 
 
 class Line3d:
+    # Params:
+        # origin: Beginning point coordinates passed as a array [x, y, z]
+        # end: Final point coordinates passed as a array [x, y, z]
+    def __init__(self, origin, end):
+        self.origin = origin
+        self.end = end
+        self.points = self._create_points()
+
+    def _create_points(self):
+        points_list = []
+        points_list.append([self.origin[0], self.origin[1], self.origin[2]])
+        points_list.append([self.end[0], self.end[1], self.end[2]])
+        return points_list
+
+    def draw(self):
+        glBegin(GL_LINES)
+        glColor(1.0, 0.0, 0.0)
+        glVertex3f(self.points[0][0], self.points[0][1], self.points[0][2])
+        glVertex3f(self.points[1][0], self.points[1][1], self.points[1][2])
+
+        glEnd()
     pass
 
 
