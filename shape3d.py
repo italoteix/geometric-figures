@@ -1,11 +1,11 @@
-import pygame
-from pygame.locals import *
 from OpenGL.GL import *
-from OpenGL.GLU import *
 from math import sqrt
 
 
 class Cube:
+    # Params:
+        # x, y, z: Front-upper-left vertex coordinate
+        # width: Size dimension
     def __init__(self, x, y, z, width):
         self.x = x
         self.y = y
@@ -16,14 +16,15 @@ class Cube:
     def _create_points(self):
         points_list = []
         points_list.append([self.x, self.y, self.z])
-        points_list.append([self.x, self.y + self.width, self.z])
-        points_list.append([self.x + self.width, self.y + self.width, self.z])
+        points_list.append([self.x, self.y - self.width, self.z])
+        points_list.append([self.x + self.width, self.y - self.width, self.z])
         points_list.append([self.x + self.width, self.y, self.z])
-        points_list.append([self.x, self.y, self.z + self.width])
-        points_list.append([self.x, self.y + self.width, self.z + self.width])
-        points_list.append([self.x + self.width, self.y +
-                            self.width, self.z + self.width])
-        points_list.append([self.x + self.width, self.y, self.z + self.width])
+        points_list.append([self.x, self.y, self.z - self.width])
+        points_list.append([self.x, self.y - self.width, self.z - self.width])
+        points_list.append([self.x + self.width, self.y -
+                            self.width, self.z - self.width])
+        points_list.append([self.x + self.width, self.y, self.z - self.width])
+        return points_list
 
     def draw(self):
         glBegin(GL_TRIANGLES)
@@ -73,6 +74,9 @@ class Cube:
 
 
 class Parallelepiped:
+    # Params:
+        # x, y, z: Front-upper-left vertex coordinate
+        # width height, length: Parallelepiped dimensions
     def __init__(self, x, y, z, width, height, length):
         self.x = x
         self.y = y
@@ -85,15 +89,16 @@ class Parallelepiped:
     def _create_points(self):
         points_list = []
         points_list.append([self.x, self.y, self.z])
-        points_list.append([self.x, self.y + self.height, self.z])
+        points_list.append([self.x, self.y - self.height, self.z])
         points_list.append(
-            [self.x + self.length, self.y + self.height, self.z])
+            [self.x + self.length, self.y - self.height, self.z])
         points_list.append([self.x + self.length, self.y, self.z])
-        points_list.append([self.x, self.y, self.z + self.width])
-        points_list.append([self.x, self.y + self.height, self.z + self.width])
-        points_list.append([self.x + self.length, self.y +
-                            self.height, self.z + self.width])
-        points_list.append([self.x + self.length, self.y, self.z + self.width])
+        points_list.append([self.x, self.y, self.z - self.width])
+        points_list.append([self.x, self.y - self.height, self.z - self.width])
+        points_list.append([self.x + self.length, self.y -
+                            self.height, self.z - self.width])
+        points_list.append([self.x + self.length, self.y, self.z - self.width])
+        return points_list
 
     def draw(self):
         glBegin(GL_TRIANGLES)
@@ -143,22 +148,28 @@ class Parallelepiped:
 
 
 class Piramid:
-    def __init__(self, x, y, z, width):
+    # Params:
+        # x, y, z: Front-upper-left vertex coordinate
+        # width height, length: Parallelepiped dimensions
+    def __init__(self, x, y, z, height, width):
         self.x = x
         self.y = y
         self.z = z
+        self.height = height
         self.width = width
         self.points = self._create_points()
 
     def _create_points(self):
-        h = self.width * sqrt(2) / 2
-        sd = sqrt(self.width) / 2
         points_list = []
         points_list.append([self.x, self.y, self.z])
-        points_list.append([self.x - sd, self.y - h, self.z + self.width/2])
-        points_list.append([self.x - sd, self.y - h, self.z - self.width/2])
-        points_list.append([self.x + sd, self.y - h, self.z + self.width/2])
-        points_list.append([self.x + sd, self.y - h, self.z - self.width/2])
+        points_list.append(
+            [self.x - self.width / 2, self.y - self.height, self.z + self.width / 2])
+        points_list.append(
+            [self.x - self.width / 2, self.y - self.height, self.z - self.width / 2])
+        points_list.append(
+            [self.x + self.width / 2, self.y - self.height, self.z + self.width / 2])
+        points_list.append(
+            [self.x + self.width / 2, self.y - self.height, self.z - self.width / 2])
         return points_list
 
     def draw(self):
@@ -189,3 +200,11 @@ class Piramid:
         glVertex3f(self.points[1][0], self.points[1][1], self.points[1][2])
         glVertex3f(self.points[4][0], self.points[4][1], self.points[4][2])
         glEnd()
+
+
+class Line3d:
+    pass
+
+
+class Sphere:
+    pass
