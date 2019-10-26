@@ -24,6 +24,14 @@ if __name__ == "__main__":
     parallelepiped = Parallelepiped(1, 1, 1, 1, 1, 2)
     piramid = Piramid(0, 1, 0, 1, 1, 1.5)
     line3d = Line3d([0, 1, 1], [2, 2, 2])
+    sphere = Sphere(0, 0, 0, 1, 10, 10)
+
+    # point light from the left, top, front
+    # glLight(GL_LIGHT0, GL_POSITION,  (5, 5, 5, 1))
+    # glLightfv(GL_LIGHT0, GL_AMBIENT, (0, 0, 0, 1))
+    # glLightfv(GL_LIGHT0, GL_DIFFUSE, (1, 1, 1, 1))
+
+    glEnable(GL_DEPTH_TEST)
 
     while True:
         for event in pygame.event.get():
@@ -31,7 +39,13 @@ if __name__ == "__main__":
                 pygame.quit()
                 quit()
 
+        glRotate(1, 0, 1, 0)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+        # glEnable(GL_LIGHTING)
+        # glEnable(GL_LIGHT0)
+        # glEnable(GL_COLOR_MATERIAL)
+        # glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
 
         # square.draw()
         # rectangle.draw()
@@ -42,7 +56,12 @@ if __name__ == "__main__":
         # cube.draw()
         # parallelepiped.draw()
         # piramid.draw()
-        line3d.draw()
+        # line3d.draw()
+        sphere.draw()
+
+        # glDisable(GL_LIGHT0)
+        # glDisable(GL_LIGHTING)
+        # glDisable(GL_COLOR_MATERIAL)
 
         pygame.display.flip()
         pygame.time.wait(10)

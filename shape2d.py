@@ -1,5 +1,6 @@
 from OpenGL.GL import *
 from math import pi, sin, cos, tan
+from transform import Transform
 
 
 class Square:
@@ -32,6 +33,46 @@ class Square:
         glVertex2f(self.points[2][0], self.points[2][1])
         glVertex2f(self.points[3][0], self.points[3][1])
         glEnd()
+
+    def rotate2D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotate2D(self.points[i], ang)
+        return self.points
+
+    def projectionX2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionX2D(self.points[i])
+        return self.points
+
+    def projectionY2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionY2D(self.points[i])
+        return self.points
+
+    def shear(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().shear(self.points[i], ang)
+        return self.points
+
+    def reflectX2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectX2D(self.points[i])
+        return self.points
+
+    def reflectY2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectY2D(self.points[i])
+        return self.points
+
+    def translate2D(self, x, y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().translate2D(self.points[i], x, y)
+        return self.points
+
+    def scale(self, x, y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scale(self.points[i], x, y)
+        return self.points
 
 
 class Rectangle:
@@ -66,6 +107,46 @@ class Rectangle:
         glVertex2f(self.points[3][0], self.points[3][1])
         glEnd()
 
+    def rotate2D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotate2D(self.points[i], ang)
+        return self.points
+
+    def projectionX2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionX2D(self.points[i])
+        return self.points
+
+    def projectionY2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionY2D(self.points[i])
+        return self.points
+
+    def shear(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().shear(self.points[i], ang)
+        return self.points
+
+    def reflectX2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectX2D(self.points[i])
+        return self.points
+
+    def reflectY2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectY2D(self.points[i])
+        return self.points
+
+    def translate2D(self, x, y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().translate2D(self.points[i], x, y)
+        return self.points
+
+    def scale(self, x, y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scale(self.points[i], x, y)
+        return self.points
+
 
 class Triangle:
     # Params:
@@ -93,6 +174,46 @@ class Triangle:
 
         glEnd()
 
+    def rotate2D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotate2D(self.points[i], ang)
+        return self.points
+
+    def projectionX2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionX2D(self.points[i])
+        return self.points
+
+    def projectionY2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionY2D(self.points[i])
+        return self.points
+
+    def shear(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().shear(self.points[i], ang)
+        return self.points
+
+    def reflectX2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectX2D(self.points[i])
+        return self.points
+
+    def reflectY2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectY2D(self.points[i])
+        return self.points
+
+    def translate2D(self, x, y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().translate2D(self.points[i], x, y)
+        return self.points
+
+    def scale(self, x, y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scale(self.points[i], x, y)
+        return self.points
+
 
 class Line:
     # Params:
@@ -116,6 +237,46 @@ class Line:
         glVertex2f(self.points[1][0], self.points[1][1])
 
         glEnd()
+
+    def rotate2D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotate2D(self.points[i], ang)
+        return self.points
+
+    def projectionX2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionX2D(self.points[i])
+        return self.points
+
+    def projectionY2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionY2D(self.points[i])
+        return self.points
+
+    def shear(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().shear(self.points[i], ang)
+        return self.points
+
+    def reflectX2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectX2D(self.points[i])
+        return self.points
+
+    def reflectY2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectY2D(self.points[i])
+        return self.points
+
+    def translate2D(self, x, y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().translate2D(self.points[i], x, y)
+        return self.points
+
+    def scale(self, x, y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scale(self.points[i], x, y)
+        return self.points
 
 
 class Circle:
@@ -151,3 +312,43 @@ class Circle:
                 glVertex2f(self.points[i][0], self.points[i][1])
                 glVertex2f(self.points[i + 1][0], self.points[i + 1][1])
         glEnd()
+
+    def rotate2D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotate2D(self.points[i], ang)
+        return self.points
+
+    def projectionX2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionX2D(self.points[i])
+        return self.points
+
+    def projectionY2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionY2D(self.points[i])
+        return self.points
+
+    def shear(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().shear(self.points[i], ang)
+        return self.points
+
+    def reflectX2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectX2D(self.points[i])
+        return self.points
+
+    def reflectY2D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectY2D(self.points[i])
+        return self.points
+
+    def translate2D(self, x, y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().translate2D(self.points[i], x, y)
+        return self.points
+
+    def scale(self, x, y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scale(self.points[i], x, y)
+        return self.points
