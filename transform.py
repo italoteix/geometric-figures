@@ -226,7 +226,7 @@ class Transform:
         k[1, 1] = 1
         k[2, 2] = cos(ang)
         k[2, 3] = -sin(ang)
-        k[2, 3] = sin(ang)
+        k[3, 2] = sin(ang)
         k[3, 3] = cos(ang)
 
         dom = k.dot(dom)
@@ -241,8 +241,8 @@ class Transform:
         k = Matrix(3, 3)
 
         k[1, 1] = cos(ang)
-        k[1, 2] = -sin(ang)
-        k[2, 1] = sin(ang)
+        k[1, 3] = -sin(ang)
+        k[3, 1] = sin(ang)
         k[2, 2] = 1
         k[3, 3] = cos(ang)
 
