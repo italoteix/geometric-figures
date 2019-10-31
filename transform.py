@@ -100,17 +100,29 @@ class Transform:
         y = dom[2, 1]
         return [x, y]
 
-    def scale(self, point, x, y):
-        xp, yp = point
-        dom = Matrix(2, 1, [xp, yp])
+    def scaleX2D(self, point, x):
+        xp,yp = point
+        dom = Matrix(2, 1, [xp,yp])
         z = Matrix(2, 2)
-        z[1, 1] = x
-        z[2, 2] = y
+        z[1,1] = x
+        z[2,2] = 1
 
         dom = z.dot(dom)
-        xp = dom[1, 1]
-        yp = dom[2, 1]
-        return [xp, yp]
+        xp = dom[1,1]
+        yp = dom[2,1]
+        return [xp,yp]
+
+    def scaleY2D(self, point, y):
+        xp,yp = point
+        dom = Matrix(2, 1, [xp,yp])
+        z = Matrix(2, 2)
+        z[1,1] = 1
+        z[2,2] = y
+
+        dom = z.dot(dom)
+        xp = dom[1,1]
+        yp = dom[2,1]
+        return [xp,yp]
 
 ######################################################################################
 ###############################  3D TRANSFORMATIONS  #################################
@@ -161,14 +173,14 @@ class Transform:
         z = dom[3, 1]
         return [x, y, z]
 
-    def projectionX3D(self, point):
+    def projectionXZ3D(self, point):
         x, y, z = point
         dom = Matrix(3, 1, [x, y, z])
         k = Matrix(3, 3)
 
         k[1, 1] = 1
         k[2, 2] = 0
-        k[3, 3] = 0
+        k[3, 3] = 1
 
         dom = k.dot(dom)
         x = dom[1, 1]
@@ -176,12 +188,12 @@ class Transform:
         z = dom[3, 1]
         return [x, y, z]
 
-    def projectionY3D(self, point):
+    def projectionYX3D(self, point):
         x, y, z = point
         dom = Matrix(3, 1, [x, y, z])
         k = Matrix(3, 3)
 
-        k[1, 1] = 0
+        k[1, 1] = 1
         k[2, 2] = 1
         k[3, 3] = 0
 
@@ -191,13 +203,13 @@ class Transform:
         z = dom[3, 1]
         return [x, y, z]
 
-    def projectionZ3D(self, point):
+    def projectionZY3D(self, point):
         x, y, z = point
         dom = Matrix(3, 1, [x, y, z])
         k = Matrix(3, 3)
 
         k[1, 1] = 0
-        k[2, 2] = 0
+        k[2, 2] = 1
         k[3, 3] = 1
 
         dom = k.dot(dom)
@@ -256,3 +268,80 @@ class Transform:
         y = dom[2, 1]
         z = dom[3, 1]
         return [x, y, z]
+
+    def shear3D(self,point, ang):
+        ang = ang * pi / 180
+        x,y,z = point
+        dom = Matrix(3, 1, [x,y,z])
+        k = Matrix(3,3)
+        k[1,2] = tan(ang)
+        k[1,1] = 1
+        k[2,2] = 1
+        k[3,3] = 1
+
+        dom = k.dot(dom)
+        x = dom[1,1]
+        y = dom[2,1]
+        z = dom[3,1]
+        return [x,y,z]
+
+    def translate3D(self, point,x,y,z):
+        xp, yp, zp = point
+        dom = Matrix(4, 1, [xp,yp,zp,1])
+        k = Matrix(4, 4)
+
+        k[1,1] = 1
+        k[2,2] = 1
+        k[3,3] = 1
+        k[4,4] = 1
+        k[1,4] = x
+        k[2,4] = y
+        k[3,4] = z
+
+        dom = k.dot(dom)
+        xp = dom[1,1]
+        yp = dom[2,1]
+        zp = dom[3,1]
+        return [xp,yp,zp]
+
+    def scaleX3D(self, point, x):
+        xp,yp,zp = point
+        dom = Matrix(3, 1, [xp,yp,zp])
+        k = Matrix(3,3)
+        k[1,1] = x
+        k[2,2] = 1
+        k[3,3] = 1
+
+        dom = k.dot(dom)
+        xp = dom[1,1]
+        yp = dom[2,1]
+        zp = dom[3,1]
+        return [xp,yp,zp]
+
+    def scaleY3D(self, point, y):
+        xp,yp,zp = point
+        dom = Matrix(3, 1, [xp,yp,zp])
+        k = Matrix(3,3)
+        k[1,1] = 1
+        k[2,2] = y
+        k[3,3] = 1
+
+        dom = k.dot(dom)
+        xp = dom[1,1]
+        yp = dom[2,1]
+        zp = dom[3,1]
+        return [xp,yp,zp]
+
+    def scaleZ3D(self, point,z):
+        xp,yp,zp = point
+        dom = Matrix(3, 1, [xp,yp,zp])
+        k = Matrix(3,3)
+        k[1,1] = 1
+        k[2,2] = 1
+        k[3,3] = z
+
+        dom = k.dot(dom)
+        xp = dom[1,1]
+        yp = dom[2,1]
+        zp = dom[3,1]
+        return [xp,yp,zp]

@@ -33,13 +33,10 @@ if __name__ == "__main__":
     # square.rotate2D(45)
     # square.shear(45)
     # square.translate2D(1, -1)
-    # square.scale(1, 1)
-    line.projectionY2D()
+    # square.scaleX2D(1, 1)
+    # square.scaleY2D(1, 1)
 
-    # point light from the left, top, front
-    # glLight(GL_LIGHT0, GL_POSITION,  (5, 5, 5, 1))
-    # glLightfv(GL_LIGHT0, GL_AMBIENT, (0, 0, 0, 1))
-    # glLightfv(GL_LIGHT0, GL_DIFFUSE, (1, 1, 1, 1))
+    cube.translate3D(1, 0, 0)
 
     glEnable(GL_DEPTH_TEST)
 
@@ -52,26 +49,17 @@ if __name__ == "__main__":
         # glRotate(1, 2, 3, 0)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
-        # glEnable(GL_LIGHTING)
-        # glEnable(GL_LIGHT0)
-        # glEnable(GL_COLOR_MATERIAL)
-        # glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
-
         # square.draw()
         # rectangle.draw()
         # triangle.draw()
-        line.draw()
+        # line.draw()
         # circle.draw()
 
-        # cube.draw()
+        cube.draw()
         # parallelepiped.draw()
         # piramid.draw()
         # line3d.draw()
         # sphere.draw()
-
-        # glDisable(GL_LIGHT0)
-        # glDisable(GL_LIGHTING)
-        # glDisable(GL_COLOR_MATERIAL)
 
         pygame.display.flip()
         pygame.time.wait(10)

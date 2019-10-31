@@ -72,9 +72,13 @@ class Square:
             self.points[i] = Transform().translate2D(self.points[i], x, y)
         return self.points
 
-    def scale(self, x, y):
+    def scaleY2D(self,y):
         for i in range(len(self.points)):
-            self.points[i] = Transform().scale(self.points[i], x, y)
+            self.points[i] = Transform().scaleY2D(self.points[i],y)
+        return self.points
+    def scaleX2D(self,x):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleX2D(self.points[i],x)
         return self.points
 
     def collinear(self): 
@@ -161,9 +165,13 @@ class Rectangle:
             self.points[i] = Transform().translate2D(self.points[i], x, y)
         return self.points
 
-    def scale(self, x, y):
+    def scaleY2D(self,y):
         for i in range(len(self.points)):
-            self.points[i] = Transform().scale(self.points[i], x, y)
+            self.points[i] = Transform().scaleY2D(self.points[i],y)
+        return self.points
+    def scaleX2D(self,x):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleX2D(self.points[i],x)
         return self.points
 
     def collinear(self): 
@@ -244,9 +252,13 @@ class Triangle:
             self.points[i] = Transform().translate2D(self.points[i], x, y)
         return self.points
 
-    def scale(self, x, y):
+    def scaleY2D(self,y):
         for i in range(len(self.points)):
-            self.points[i] = Transform().scale(self.points[i], x, y)
+            self.points[i] = Transform().scaleY2D(self.points[i],y)
+        return self.points
+    def scaleX2D(self,x):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleX2D(self.points[i],x)
         return self.points
 
     def collinear(self): 
@@ -327,9 +339,13 @@ class Line:
             self.points[i] = Transform().translate2D(self.points[i], x, y)
         return self.points
 
-    def scale(self, x, y):
+    def scaleY2D(self,y):
         for i in range(len(self.points)):
-            self.points[i] = Transform().scale(self.points[i], x, y)
+            self.points[i] = Transform().scaleY2D(self.points[i],y)
+        return self.points
+    def scaleX2D(self,x):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleX2D(self.points[i],x)
         return self.points
 
 
@@ -405,9 +421,13 @@ class Circle:
             self.points[i] = Transform().translate2D(self.points[i], x, y)
         return self.points
 
-    def scale(self, x, y):
+    def scaleY2D(self,y):
         for i in range(len(self.points)):
-            self.points[i] = Transform().scale(self.points[i], x, y)
+            self.points[i] = Transform().scaleY2D(self.points[i],y)
+        return self.points
+    def scaleX2D(self,x):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleX2D(self.points[i],x)
         return self.points
 
     def collinear(self): 

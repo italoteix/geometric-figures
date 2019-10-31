@@ -1,5 +1,6 @@
 from OpenGL.GL import *
 from math import sqrt, pi, cos, sin
+from transform import Transform
 
 
 class Cube:
@@ -71,6 +72,63 @@ class Cube:
         glVertex3f(self.points[7][0], self.points[7][1], self.points[7][2])
 
         glEnd()
+
+    def rotateX3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateX3D(self.points[i],ang)
+        return self.points
+    def rotateY3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateY3D(self.points[i],ang)
+        return self.points
+    def rotateZ3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateZ3D(self.points[i],ang)
+        return self.points
+    def projectionXZ3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionXZ3D(self.points[i])
+        return self.points
+    def projectionYX3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionYX3D(self.points[i])
+        return self.points
+    def projectionZY3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionZY3D(self.points[i])
+        return self.points
+    def shear3D(self,ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().shear3D(self.points[i],ang)
+        return self.points
+    def reflectX3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectX3D(self.points[i])
+        return self.points
+    def reflectY3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectY3D(self.points[i])
+        return self.points
+    def reflectZ3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectZ3D(self.points[i])
+        return self.points
+    def translate3D(self,x,y,z):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().translate3D(self.points[i],x,y,z)
+        return self.points
+    def scaleZ3D(self,z):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleZ3D(self.points[i],z)
+        return self.points
+    def scaleY3D(self,y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleY3D(self.points[i],y)
+        return self.points
+    def scaleX3D(self,x):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleX3D(self.points[i],x)
+        return self.points
 
 
 class Parallelepiped:
@@ -146,6 +204,63 @@ class Parallelepiped:
 
         glEnd()
 
+    def rotateX3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateX3D(self.points[i],ang)
+        return self.points
+    def rotateY3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateY3D(self.points[i],ang)
+        return self.points
+    def rotateZ3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateZ3D(self.points[i],ang)
+        return self.points
+    def projectionXZ3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionXZ3D(self.points[i])
+        return self.points
+    def projectionYX3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionYX3D(self.points[i])
+        return self.points
+    def projectionZY3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionZY3D(self.points[i])
+        return self.points
+    def shear3D(self,ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().shear3D(self.points[i],ang)
+        return self.points
+    def reflectX3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectX3D(self.points[i])
+        return self.points
+    def reflectY3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectY3D(self.points[i])
+        return self.points
+    def reflectZ3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectZ3D(self.points[i])
+        return self.points
+    def translate3D(self,x,y,z):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().translate3D(self.points[i],x,y,z)
+        return self.points
+    def scaleZ3D(self,z):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleZ3D(self.points[i],z)
+        return self.points
+    def scaleY3D(self,y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleY3D(self.points[i],y)
+        return self.points
+    def scaleX3D(self,x):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleX3D(self.points[i],x)
+        return self.points
+
 
 class Piramid:
     # Params:
@@ -203,6 +318,63 @@ class Piramid:
         glVertex3f(self.points[4][0], self.points[4][1], self.points[4][2])
         glEnd()
 
+    def rotateX3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateX3D(self.points[i],ang)
+        return self.points
+    def rotateY3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateY3D(self.points[i],ang)
+        return self.points
+    def rotateZ3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateZ3D(self.points[i],ang)
+        return self.points
+    def projectionXZ3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionXZ3D(self.points[i])
+        return self.points
+    def projectionYX3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionYX3D(self.points[i])
+        return self.points
+    def projectionZY3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionZY3D(self.points[i])
+        return self.points
+    def shear3D(self,ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().shear3D(self.points[i],ang)
+        return self.points
+    def reflectX3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectX3D(self.points[i])
+        return self.points
+    def reflectY3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectY3D(self.points[i])
+        return self.points
+    def reflectZ3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectZ3D(self.points[i])
+        return self.points
+    def translate3D(self,x,y,z):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().translate3D(self.points[i],x,y,z)
+        return self.points
+    def scaleZ3D(self,z):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleZ3D(self.points[i],z)
+        return self.points
+    def scaleY3D(self,y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleY3D(self.points[i],y)
+        return self.points
+    def scaleX3D(self,x):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleX3D(self.points[i],x)
+        return self.points
+
 
 class Line3d:
     # Params:
@@ -226,6 +398,63 @@ class Line3d:
         glVertex3f(self.points[1][0], self.points[1][1], self.points[1][2])
 
         glEnd()
+
+    def rotateX3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateX3D(self.points[i],ang)
+        return self.points
+    def rotateY3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateY3D(self.points[i],ang)
+        return self.points
+    def rotateZ3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateZ3D(self.points[i],ang)
+        return self.points
+    def projectionXZ3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionXZ3D(self.points[i])
+        return self.points
+    def projectionYX3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionYX3D(self.points[i])
+        return self.points
+    def projectionZY3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionZY3D(self.points[i])
+        return self.points
+    def shear3D(self,ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().shear3D(self.points[i],ang)
+        return self.points
+    def reflectX3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectX3D(self.points[i])
+        return self.points
+    def reflectY3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectY3D(self.points[i])
+        return self.points
+    def reflectZ3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectZ3D(self.points[i])
+        return self.points
+    def translate3D(self,x,y,z):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().translate3D(self.points[i],x,y,z)
+        return self.points
+    def scaleZ3D(self,z):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleZ3D(self.points[i],z)
+        return self.points
+    def scaleY3D(self,y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleY3D(self.points[i],y)
+        return self.points
+    def scaleX3D(self,x):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleX3D(self.points[i],x)
+        return self.points
 
 
 class Sphere:
@@ -266,11 +495,11 @@ class Sphere:
             k1 = i * (self.sectors + 1)
             k2 = k1 + self.sectors + 1
 
-            glBegin(GL_LINE_STRIP)
+            glBegin(GL_TRIANGLES)
             for j in range(0, self.sectors):
 
                 if i != 0:
-                    # glColor(1.0, 0.9 - 0.04 * j, 1.0)
+                    glColor(1.0, 0.9 - 0.04 * j, 1.0)
                     glVertex3f(
                         self.points[k1][0], self.points[k1][1], self.points[k1][2])
                     glVertex3f(
@@ -279,7 +508,7 @@ class Sphere:
                         self.points[k1 + 1][0], self.points[k1 + 1][1], self.points[k1 + 1][2])
 
                 if i != (self.stacks - 1):
-                    # glColor(1.0, 1.0,  0.9 - 0.04 * j)
+                    glColor(1.0, 1.0,  0.9 - 0.04 * j)
                     glVertex3f(
                         self.points[k1 + 1][0], self.points[k1 + 1][1], self.points[k1 + 1][2])
                     glVertex3f(
@@ -291,3 +520,60 @@ class Sphere:
                 k2 = k2 + 1
 
             glEnd()
+
+    def rotateX3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateX3D(self.points[i],ang)
+        return self.points
+    def rotateY3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateY3D(self.points[i],ang)
+        return self.points
+    def rotateZ3D(self, ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().rotateZ3D(self.points[i],ang)
+        return self.points
+    def projectionXZ3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionXZ3D(self.points[i])
+        return self.points
+    def projectionYX3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionYX3D(self.points[i])
+        return self.points
+    def projectionZY3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().projectionZY3D(self.points[i])
+        return self.points
+    def shear3D(self,ang):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().shear3D(self.points[i],ang)
+        return self.points
+    def reflectX3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectX3D(self.points[i])
+        return self.points
+    def reflectY3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectY3D(self.points[i])
+        return self.points
+    def reflectZ3D(self):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().reflectZ3D(self.points[i])
+        return self.points
+    def translate3D(self,x,y,z):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().translate3D(self.points[i],x,y,z)
+        return self.points
+    def scaleZ3D(self,z):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleZ3D(self.points[i],z)
+        return self.points
+    def scaleY3D(self,y):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleY3D(self.points[i],y)
+        return self.points
+    def scaleX3D(self,x):
+        for i in range(len(self.points)):
+            self.points[i] = Transform().scaleX3D(self.points[i],x)
+        return self.points
