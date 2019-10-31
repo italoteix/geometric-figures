@@ -231,7 +231,7 @@ class Line3d:
 class Sphere:
     # Params:
         # x, y, z: Center coordinates
-        # raius
+        # radius
         # sectors: Number of horizontal sections wanted ( longitudes )
         # stacks: Number of vertical sections wanted ( latitudes )
     def __init__(self, x, y, z, radius, sectors, stacks):
@@ -266,11 +266,11 @@ class Sphere:
             k1 = i * (self.sectors + 1)
             k2 = k1 + self.sectors + 1
 
-            glBegin(GL_TRIANGLES)
+            glBegin(GL_LINE_STRIP)
             for j in range(0, self.sectors):
 
                 if i != 0:
-                    glColor(1.0, 0.9 - 0.04 * j, 1.0)
+                    # glColor(1.0, 0.9 - 0.04 * j, 1.0)
                     glVertex3f(
                         self.points[k1][0], self.points[k1][1], self.points[k1][2])
                     glVertex3f(
@@ -279,7 +279,7 @@ class Sphere:
                         self.points[k1 + 1][0], self.points[k1 + 1][1], self.points[k1 + 1][2])
 
                 if i != (self.stacks - 1):
-                    glColor(1.0, 1.0,  0.9 - 0.04 * j)
+                    # glColor(1.0, 1.0,  0.9 - 0.04 * j)
                     glVertex3f(
                         self.points[k1 + 1][0], self.points[k1 + 1][1], self.points[k1 + 1][2])
                     glVertex3f(

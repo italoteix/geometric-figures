@@ -111,3 +111,148 @@ class Transform:
         xp = dom[1, 1]
         yp = dom[2, 1]
         return [xp, yp]
+
+######################################################################################
+###############################  3D TRANSFORMATIONS  #################################
+######################################################################################
+
+    def reflectX3D(self, point):
+        x, y, z = point
+        dom = Matrix(3, 1, [x, y, z])
+        k = Matrix(3, 3)
+
+        k[1, 1] = 1
+        k[2, 2] = -1
+        k[3, 3] = -1
+
+        dom = k.dot(dom)
+        x = dom[1, 1]
+        y = dom[2, 1]
+        z = dom[3, 1]
+        return [x, y, z]
+
+    def reflectY3D(self, point):
+        x, y, z = point
+        dom = Matrix(3, 1, [x, y, z])
+        k = Matrix(3, 3)
+
+        k[1, 1] = -1
+        k[2, 2] = 1
+        k[3, 3] = -1
+
+        dom = k.dot(dom)
+        x = dom[1, 1]
+        y = dom[2, 1]
+        z = dom[3, 1]
+        return [x, y, z]
+
+    def reflectZ3D(self, point):
+        x, y, z = point
+        dom = Matrix(3, 1, [x, y, z])
+        k = Matrix(3, 3)
+
+        k[1, 1] = -1
+        k[2, 2] = -1
+        k[3, 3] = 1
+
+        dom = k.dot(dom)
+        x = dom[1, 1]
+        y = dom[2, 1]
+        z = dom[3, 1]
+        return [x, y, z]
+
+    def projectionX3D(self, point):
+        x, y, z = point
+        dom = Matrix(3, 1, [x, y, z])
+        k = Matrix(3, 3)
+
+        k[1, 1] = 1
+        k[2, 2] = 0
+        k[3, 3] = 0
+
+        dom = k.dot(dom)
+        x = dom[1, 1]
+        y = dom[2, 1]
+        z = dom[3, 1]
+        return [x, y, z]
+
+    def projectionY3D(self, point):
+        x, y, z = point
+        dom = Matrix(3, 1, [x, y, z])
+        k = Matrix(3, 3)
+
+        k[1, 1] = 0
+        k[2, 2] = 1
+        k[3, 3] = 0
+
+        dom = k.dot(dom)
+        x = dom[1, 1]
+        y = dom[2, 1]
+        z = dom[3, 1]
+        return [x, y, z]
+
+    def projectionZ3D(self, point):
+        x, y, z = point
+        dom = Matrix(3, 1, [x, y, z])
+        k = Matrix(3, 3)
+
+        k[1, 1] = 0
+        k[2, 2] = 0
+        k[3, 3] = 1
+
+        dom = k.dot(dom)
+        x = dom[1, 1]
+        y = dom[2, 1]
+        z = dom[3, 1]
+        return [x, y, z]
+
+    def rotateX3D(self, point, ang):
+        x, y, z = point
+        dom = Matrix(3, 1, [x, y, z])
+        k = Matrix(3, 3)
+
+        k[1, 1] = 1
+        k[2, 2] = cos(ang)
+        k[2, 3] = -sin(ang)
+        k[2, 3] = sin(ang)
+        k[3, 3] = cos(ang)
+
+        dom = k.dot(dom)
+        x = dom[1, 1]
+        y = dom[2, 1]
+        z = dom[3, 1]
+        return [x, y, z]
+
+    def rotateY3D(self, point, ang):
+        x, y, z = point
+        dom = Matrix(3, 1, [x, y, z])
+        k = Matrix(3, 3)
+
+        k[1, 1] = cos(ang)
+        k[1, 2] = -sin(ang)
+        k[2, 1] = sin(ang)
+        k[2, 2] = 1
+        k[3, 3] = cos(ang)
+
+        dom = k.dot(dom)
+        x = dom[1, 1]
+        y = dom[2, 1]
+        z = dom[3, 1]
+        return [x, y, z]
+
+    def rotateZ3D(self, point, ang):
+        x, y, z = point
+        dom = Matrix(3, 1, [x, y, z])
+        k = Matrix(3, 3)
+
+        k[1, 1] = cos(ang)
+        k[1, 2] = -sin(ang)
+        k[2, 1] = sin(ang)
+        k[2, 2] = cos(ang)
+        k[3, 3] = 1
+
+        dom = k.dot(dom)
+        x = dom[1, 1]
+        y = dom[2, 1]
+        z = dom[3, 1]
+        return [x, y, z]

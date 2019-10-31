@@ -22,7 +22,10 @@ class Square:
         return points_list
 
     def draw(self):
-        glBegin(GL_TRIANGLES)
+        if(self.collinear()):
+            glBegin(GL_LINES)
+        else:
+            glBegin(GL_TRIANGLES)
 
         glColor(1.0, 0.0, 0.0)
         glVertex2f(self.points[0][0], self.points[0][1])
@@ -73,6 +76,19 @@ class Square:
         for i in range(len(self.points)):
             self.points[i] = Transform().scale(self.points[i], x, y)
         return self.points
+
+    def collinear(self): 
+        """ Calculation the area of   
+            triangle. We have skipped  
+            multiplication with 0.5 to 
+            avoid floating point computations """
+        x1, y1 = self.points[0]
+        x2, y2 = self.points[1]
+        for i in range(2, len(self.points)):
+            a = x1 * (y2 - self.points[i][1]) + x2 * (self.points[i][1] - y1) + self.points[i][0] * (y1 - y2)
+            if (a != 0): 
+                return False
+        return True
 
 
 class Rectangle:
@@ -95,7 +111,10 @@ class Rectangle:
         return points_list
 
     def draw(self):
-        glBegin(GL_TRIANGLES)
+        if (self.collinear()):
+            glBegin(GL_LINES)
+        else:
+            glBegin(GL_TRIANGLES)
 
         glColor(1.0, 0.0, 0.0)
         glVertex2f(self.points[0][0], self.points[0][1])
@@ -147,6 +166,19 @@ class Rectangle:
             self.points[i] = Transform().scale(self.points[i], x, y)
         return self.points
 
+    def collinear(self): 
+        """ Calculation the area of   
+            triangle. We have skipped  
+            multiplication with 0.5 to 
+            avoid floating point computations """
+        x1, y1 = self.points[0]
+        x2, y2 = self.points[1]
+        for i in range(2, len(self.points)):
+            a = x1 * (y2 - self.points[i][1]) + x2 * (self.points[i][1] - y1) + self.points[i][0] * (y1 - y2)
+            if (a != 0): 
+                return False
+        return True
+
 
 class Triangle:
     # Params:
@@ -165,7 +197,10 @@ class Triangle:
         return points_list
 
     def draw(self):
-        glBegin(GL_TRIANGLES)
+        if(self.collinear()):
+            glBegin(GL_LINES)
+        else:
+            glBegin(GL_TRIANGLES)
 
         glColor(1.0, 0.0, 0.0)
         glVertex2f(self.points[0][0], self.points[0][1])
@@ -214,6 +249,19 @@ class Triangle:
             self.points[i] = Transform().scale(self.points[i], x, y)
         return self.points
 
+    def collinear(self): 
+        """ Calculation the area of   
+            triangle. We have skipped  
+            multiplication with 0.5 to 
+            avoid floating point computations """
+        x1, y1 = self.points[0]
+        x2, y2 = self.points[1]
+        for i in range(2, len(self.points)):
+            a = x1 * (y2 - self.points[i][1]) + x2 * (self.points[i][1] - y1) + self.points[i][0] * (y1 - y2)
+            if (a != 0): 
+                return False
+        return True
+
 
 class Line:
     # Params:
@@ -231,7 +279,13 @@ class Line:
         return points_list
 
     def draw(self):
-        glBegin(GL_LINES)
+        if(self.points[0] == self.points[1]):
+            glPointSize(4.0)
+            glBegin(GL_POINTS)
+            # glLineWidth(10)
+        else:
+            glBegin(GL_LINES)
+
         glColor(1.0, 0.0, 0.0)
         glVertex2f(self.points[0][0], self.points[0][1])
         glVertex2f(self.points[1][0], self.points[1][1])
@@ -300,7 +354,10 @@ class Circle:
         return points_list
 
     def draw(self):
-        glBegin(GL_TRIANGLES)
+        if(self.collinear()):
+            glBegin(GL_LINES)
+        else:
+            glBegin(GL_TRIANGLES)
 
         for i in range(0, self.sectors):
             if(i == (self.sectors - 1)):
@@ -352,3 +409,16 @@ class Circle:
         for i in range(len(self.points)):
             self.points[i] = Transform().scale(self.points[i], x, y)
         return self.points
+
+    def collinear(self): 
+        """ Calculation the area of   
+            triangle. We have skipped  
+            multiplication with 0.5 to 
+            avoid floating point computations """
+        x1, y1 = self.points[0]
+        x2, y2 = self.points[1]
+        for i in range(2, len(self.points)):
+            a = x1 * (y2 - self.points[i][1]) + x2 * (self.points[i][1] - y1) + self.points[i][0] * (y1 - y2)
+            if (a != 0): 
+                return False
+        return True

@@ -17,7 +17,7 @@ if __name__ == "__main__":
     square = Square(1, 1, 1)
     rectangle = Rectangle(1, 1, 2, 1)
     triangle = Triangle([1, 0], [0, 0], [0, 1])
-    line = Line([1, 0], [0, 3])
+    line = Line([1, 0], [3, 0])
     circle = Circle(0, 0, 1, 8)
 
     cube = Cube(1, 1, 1, 1)
@@ -25,6 +25,16 @@ if __name__ == "__main__":
     piramid = Piramid(0, 1, 0, 1, 1, 1.5)
     line3d = Line3d([0, 1, 1], [2, 2, 2])
     sphere = Sphere(0, 0, 0, 1, 10, 10)
+
+    # square.projectionX2D()
+    # square.projectionY2D()
+    # square.reflectX2D()
+    # square.reflectY2D()
+    # square.rotate2D(45)
+    # square.shear(45)
+    # square.translate2D(1, -1)
+    # square.scale(1, 1)
+    line.projectionY2D()
 
     # point light from the left, top, front
     # glLight(GL_LIGHT0, GL_POSITION,  (5, 5, 5, 1))
@@ -39,7 +49,7 @@ if __name__ == "__main__":
                 pygame.quit()
                 quit()
 
-        glRotate(1, 0, 1, 0)
+        # glRotate(1, 2, 3, 0)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
         # glEnable(GL_LIGHTING)
@@ -50,14 +60,14 @@ if __name__ == "__main__":
         # square.draw()
         # rectangle.draw()
         # triangle.draw()
-        # line.draw()
+        line.draw()
         # circle.draw()
 
         # cube.draw()
         # parallelepiped.draw()
         # piramid.draw()
         # line3d.draw()
-        sphere.draw()
+        # sphere.draw()
 
         # glDisable(GL_LIGHT0)
         # glDisable(GL_LIGHTING)
